@@ -1,17 +1,19 @@
 <!-- 
 Ejiroghene B. Efevberha
-PlayerSnapp (Talent Scout App)
-HTML
-ASDI1401
+Deliverable 2
+Talent Scout App
+MIU 1310
 -->
 
 <!doctype html>  
 <html lang="en">
-	<head>
-			<meta charset="utf-8">
-			<title>PlayerSnaap Template</title>
+<head>
 
-			<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta charset="utf-8">
+	
+	<title>Mobile Site Template</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,15 +23,14 @@ ASDI1401
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="css/greener.css" />
-	<link rel="stylesheet" href="css/jquerymobile.css" />
-
+	<link rel="stylesheet" href="css/structure.css" />
 	
 	
 	
 	
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="javascript/libraries/modernizr.custom.min.js"></script>
+	<script src="js/libs/modernizr.custom.min.js"></script>
 	</head>
 <body>
 	<div id="main">
@@ -49,22 +50,22 @@ ASDI1401
 					<section data-role="fieldcontain" >
 						<span class="form-error"></span>
 						<div  class="superlegend">Contact Info:</div>
-								<label for="firstname">First Name &#42;Required</label>
+								<label for="firstname">First Name &#42;</label>
 									<input type="text" name="firstname" id="firstname" placeholder=" Enter first name or &#34;nickname&#34;" class="required"/>
-									<p class="hints">Nickname in quotes (e.g "Pele")</p>
+									
 				
-								<label for="lastname">Last Name &#42;Required</label>
+								<label for="lastname">Last Name &#42;</label>
 									<input type="text" name="lastname" id="lastname" placeholder="Enter lastname" class="required"/>
-									<p class="hints"> You may re-enter nickname when used in the first-name field</p>
+									
 				
 				
 								<label for="email">Agent Email</label>
 									<input type="email" name="email" id="email" placeholder="Enter email"/>
-									<p class="hints"> e.g username@domain.com (format may vary)</p>
+									
 				
 								<label for="phone">Agent Phone</label>
 									<input type="tel" name="phone" id="phone" placeholder="000-000-0000"/>
-									<p class="hints"> Please enter phone number in correct format as shown above</p>
+									
 					</section>
 				
 					<section data-role="fieldcontain" data-native-menu="false">
@@ -78,23 +79,21 @@ ASDI1401
 									</select>
 					</section>
 				
-					<section data-role="fieldcontain" >
+					<section data-role="fieldcontain" data-native-menu="false">
+						<label for="position" id="speclegend">Position</label>
+							    	<select name="position" id="position" data-native-menu="false" >
+										<option value="noposition">-- Choose Position -- </option>
+										<option value="attack">Attacker</option>
+										<option value="midfield">Midfielder</option>
+										<option value="defense">Defender</option>
+									</select>
+					</section>
+					<section>
 						<fieldset data-role="controlgroup">
-								<legend>Field Position</legend>
-						
-									<input type="radio" value="attacker" name="position" id="forward"/>
-									<label for="forward">Forward</label>
-									<input type="radio" value="midfielder" name="position" id="midfield"/>
-									<label for="midfield">Midfield</label>
-									<input type="radio" value="defender" name="position" id="defense"/>
-									<label for="defense">Defense</label>
-						</fieldset>
-					
-						<fieldset data-role="controlgroup">
-							<legend>Priority</legend>
+							<label>Free Agent?</label>
 									<input type="checkbox" value="urgency" name="urgent" id="urgent"/>
-									<label for ="urgent">Urgent</label>
-									<p class="hints"> Click to check</p>
+									<label for ="urgent">Yes</label>
+									
 						</fieldset>
 			
 					</section>
@@ -109,11 +108,7 @@ ASDI1401
 									<input type="date" name="date" id="date"  class="datepicker" placeholder="MM/DD/YYYY"/>	
 					</section>
 				
-					<section data-role="fieldcontain">
-									<label for "notes">Notes:</label>
-									<textarea ></textarea>
-									<p class="hints">Enter additional info here</p>
-					</section>
+					
 				
 					<section data-role="fieldcontain">
 						<div data-inline="true">
@@ -141,7 +136,7 @@ ASDI1401
 			</footer>
 		</section>	
 
-<!--page 2: Search Page -->
+<!--page 2: Browse Page -->
 
 		<section data-role="page" id="browse" data-theme="a">
 			<header data-role="header" data-position="fixed" >
@@ -175,8 +170,8 @@ ASDI1401
 			</footer>
 		</section>		
 
+<!--lastname: Browse Page -->
 
-<!-- lastname: Search Page -->
 		<section data-role="page" id="lastname" data-theme="a">
 		
 			<header data-role="header" data-position="fixed">
@@ -188,34 +183,14 @@ ASDI1401
 			
 		 				 <ul data-role="listview" data-inset="true" data-filter="true" 
 		 				 data-filter-placeholder="Enter Search Here">
-		 						<li data-role="list-divider">Players by Last Name
-		 							<p class="ui-li-aside"> Contract Expires</p>
-		 						</li>
-		 						<li data-icon="forward" ><a href="#lnadejo"><h3>Adejo</h3>
-		 							<p style="font-weight:bold">Current Club:</p>
-		 							<p style="font-size:8"> Hertha Berlin</p>
-		 							<p class="ui-li-aside"> 10/10/2017</p></a>
-		 						</li>
-		 						<li data-icon="forward" ><a href="#lnameobi"><h3>Ameobi</h3>
-		 							<p style="font-weight:bold">Current Club:</p>
-		 							<p style="font-size:8"> Newcastle FC</p>
-		 							<p class="ui-li-aside"> 01/27/2015</p></a>
-		 						</li>
-		 						<li data-icon="forward" ><a href="#lnmusa"><h3>Musa</h3>
-		 							<p style="font-weight:bold">Current Club:</p>
-		 							<p style="font-size:8"> Hull City</p>
-		 							<p class="ui-li-aside"> 12/11/2013</p></a>
-		 						</li>
-		 						<li data-icon="forward" ><a href="#lnobi"><h3>Obi</h3>
-		 							<p style="font-weight:bold">Current Club:</p>
-		 							<p style="font-size:8"> Chelsea FC</p>
-		 							<p class="ui-li-aside"> 05/10/2015</p></a>
-		 						</li>
-		 						<li data-icon="forward" ><a href="#lnutaka"><h3>Utaka</h3>
-		 							<p style="font-weight:bold">Current Club:</p>
-		 							<p style="font-size:8"> Anzhi</p>
-		 							<p class="ui-li-aside"> 09/18/2016</p></a>
-		 						</li>
+		 						
+		 						<li class="results"><a href="#datareturn" data-icon="forward" >A -- F</a></li>
+		 						
+		 						<li><a href="#datareturn" data-icon="forward" >G -- L</a></li>
+		 						
+		 						<li><a href="#datareturn" data-icon="forward" >M -- R</a></li>
+		 						
+		 						<li><a href="#datareturn" data-icon="forward" >S -- Z</a></li>
 		 						
 							
 			 				</ul>
@@ -231,6 +206,30 @@ ASDI1401
 				</nav>
 			</footer>
 		</section>
+		
+
+
+<!-- lastname: Search Results Page -->
+		<section data-role="page" id="datareturn" data-theme="a">
+		
+			<header id="resultshead" data-role="header" data-position="fixed">
+				<h1>Browse Results</h1>
+				
+			</header>
+
+			
+			<footer data-role="footer">
+				<nav data-role="navbar"> 
+					<ul>
+							<li><a href="#add" data-icon="plus">Add</a></li>
+							<li><a href="#browse" data-icon="search" class="ui-btn-active" >Browse</a></li>
+							<li><a href="#about" data-icon="gear" >About</a></li>
+					</ul>
+				</nav>
+			</footer>
+		</section>
+		
+		
 <!--firstname: Search Page -->
 		<section data-role="page" id="firstname" data-theme="a">
 		
@@ -344,17 +343,14 @@ ASDI1401
 </div>
 
 	<!-- JavaScript under here -->
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-
-	<script src="javascript/libraries/jquery.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-	<script src="javascript/libraries/jquerymobile.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	
+	<script type="text/javascript" src="js/jquery.cookies.js"></script>
 	<script type="text/javascript" src="javascript/libraries/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="javascript/main.js"></script>
+	<script type="text/javascript" src="js/mainers.js"></script>
+	
 
-
-
-
-
+	
 </body>
 </html>
