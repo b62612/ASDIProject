@@ -11,100 +11,350 @@ ASDI1401
 			<meta charset="utf-8">
 			<title>PlayerSnaap Template</title>
 
-			<!-- StyleSheets under here -->
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/jquerymobile.css" />
+			<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="css/greener.css" />
+	<link rel="stylesheet" href="css/jquerymobile.css" />
+
+	
+	
+	
+	
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="javascript/libraries/modernizr.custom.min.js"></script>
 	</head>
 <body>
 	<div id="main">
-
-		<section data-role="page" id="add">
-			<header data-role="header">
-					<h1>Add Player</h1>
+<!--page 1: Add Player Page -->
+		<section data-role="page" id="add" data-theme="a">
+			<header data-role="header" data-position="fixed" >
+				<div class="ui-grid-b">
+				
+					<div class="ui-block-a"><img src="images/images/goladorelogo_28.png" /></div>
+					<div class="ui-block-b" ><h3>Add Player</h3></div>
+					<div class="ui-block-c"></div>
+				</div>
 			</header>
 				
-					<section data-role="content"> 
-							<header>
-								<h2>Form Here</h2>
-							</header>
-
-							<p> This Page will contain Form </p>
-						
-							<footer> 
-							<p> My app landing page </p>	
-							</footer>
+			<section data-role="content"> 
+				<form action="" method="post" id="addplayerform" >
+					<section data-role="fieldcontain" >
+						<span class="form-error"></span>
+						<div  class="superlegend">Contact Info:</div>
+								<label for="firstname">First Name &#42;Required</label>
+									<input type="text" name="firstname" id="firstname" placeholder=" Enter first name or &#34;nickname&#34;" class="required"/>
+									<p class="hints">Nickname in quotes (e.g "Pele")</p>
+				
+								<label for="lastname">Last Name &#42;Required</label>
+									<input type="text" name="lastname" id="lastname" placeholder="Enter lastname" class="required"/>
+									<p class="hints"> You may re-enter nickname when used in the first-name field</p>
+				
+				
+								<label for="email">Agent Email</label>
+									<input type="email" name="email" id="email" placeholder="Enter email"/>
+									<p class="hints"> e.g username@domain.com (format may vary)</p>
+				
+								<label for="phone">Agent Phone</label>
+									<input type="tel" name="phone" id="phone" placeholder="000-000-0000"/>
+									<p class="hints"> Please enter phone number in correct format as shown above</p>
 					</section>
+				
+					<section data-role="fieldcontain" data-native-menu="false">
+						<div  class="superlegend">Other Info:</div>
+								<label for="agegrade" id="speclegend">Age Category</label>
+							    	<select name="agegrade" id="agegrade" data-native-menu="false" >
+										<option value="noageselect">-- Choose Age Category -- </option>
+										<option value="underseventeen">U-17</option>
+										<option value="undertwentythree">U-23</option>
+										<option value="overtwentythree">O-23</option>
+									</select>
+					</section>
+				
+					<section data-role="fieldcontain" >
+						<fieldset data-role="controlgroup">
+								<legend>Field Position</legend>
+						
+									<input type="radio" value="attacker" name="position" id="forward"/>
+									<label for="forward">Forward</label>
+									<input type="radio" value="midfielder" name="position" id="midfield"/>
+									<label for="midfield">Midfield</label>
+									<input type="radio" value="defender" name="position" id="defense"/>
+									<label for="defense">Defense</label>
+						</fieldset>
+					
+						<fieldset data-role="controlgroup">
+							<legend>Priority</legend>
+									<input type="checkbox" value="urgency" name="urgent" id="urgent"/>
+									<label for ="urgent">Urgent</label>
+									<p class="hints"> Click to check</p>
+						</fieldset>
 			
-			<nav data-role="navbar"> 
-				<ul>		
-					<li><a href="#add">Add</a></li>
-					<li><a href="#browse">Browse</a></li>
-					<li><a href="#about">About</a></li>
-				</ul>
-			</nav>
+					</section>
+				
+					<section data-role="fieldcontain">
+									<label for "rating">Rating</label>
+									<input type="range" name="rating" id="rating" value="5" min="0" max="10"/>
+					</section>
+				
+					<section data-role="fieldcontain">
+									<label for "date">Discovery Date</label>
+									<input type="date" name="date" id="date"  class="datepicker" placeholder="MM/DD/YYYY"/>	
+					</section>
+				
+					<section data-role="fieldcontain">
+									<label for "notes">Notes:</label>
+									<textarea ></textarea>
+									<p class="hints">Enter additional info here</p>
+					</section>
+				
+					<section data-role="fieldcontain">
+						<div data-inline="true">
+						
+							<input type="submit" value="Submit" data-theme="b"/>
+						</div>
+					
+						<div>
+						<br>
+							<input type="reset" value="Reset" data-theme="c"/>
+						</div>
+					</section>		
+			
+				</form>
+			</section>
+			
+			<footer data-role="footer">
+				<nav data-role="navbar"> 
+					<ul>
+							<li><a href="#add" data-icon="plus" class="ui-btn-active">Add</a></li>
+							<li><a href="#browse" data-icon="search" >Browse</a></li>
+							<li><a href="#about" data-icon="gear" >About</a></li>
+					</ul>
+				</nav>
+			</footer>
 		</section>	
 
-<!--page separator 1 -->
+<!--page 2: Search Page -->
 
-		<section data-role="page" id="browse">
-			<header data-role="header">
-					<h1>Browse Player</h1>
+		<section data-role="page" id="browse" data-theme="a">
+			<header data-role="header" data-position="fixed" >
+				<div class="ui-grid-b">
+				
+					<div class="ui-block-a"><img src="images/images/goladorelogo_28.png" /></div>
+					<div class="ui-block-b" ><h3>Browse</h3></div>
+					<div class="ui-block-c"></div>
+				</div>
 			</header>
 				
 					<section data-role="content"> 
-							<header>
-								<h2>Search Box and Drill Down Menus</h2>
-							</header>
-
-							<p> This Page will serve the purpose of browsing players already added </p>
-						
-							<footer> 
-							<p> My Browse Page </p>	
-							</footer>
+							<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Enter Search Here">
+		 						<li data-role="list-divider">Browse Players By:</li>
+		 						<li><a href="#lastname" data-icon="forward" >Last Name</a></li>
+		 						<li><a href="#firstname" data-icon="forward" >First Name</a></li>
+		 						<li><a href="#agedivi" data-icon="forward" >Age Grade</a></li>
+		 						<li><a href="#fieldpos" data-icon="forward" >Field Position</a></li>
+		 						<li><a href="#performance" data-icon="forward" >Rating</a></li>
+			 				</ul>
 					</section>
 		
-			<nav data-role="navbar"> 
-				<ul>
-					<li><a href="#add">Add</a></li>
-					<li><a href="#browse">Browse</a></li>
-					<li><a href="#about">About</a></li>
-				</ul>
-			</nav>
-		</section>	
-
-<!--page separator 2 -->
-
-		<section data-role="page" id="about">
-			<header data-role="header">
-					<h1>About Me</h1>
-			</header>
-				
-					<section data-role="content"> 
-							<header>
-								<h2>My Content</h2>
-							</header>
-
-							<p> Lorem Ipsum </p>
-						
-							<footer> 
-							<p> My About Me Page </p>	
-							</footer>
-					</section>
-		
-			<nav data-role="navbar"> 
-				<ul>
-					<li><a href="#add">Add</a></li>
-					<li><a href="#browse">Browse</a></li>
-					<li><a href="#about">About</a></li>
-				</ul>
-			</nav>
+			<footer data-role="footer">
+				<nav data-role="navbar"> 
+					<ul>
+							<li><a href="#add" data-icon="plus">Add</a></li>
+							<li><a href="#browse" data-icon="search" class="ui-btn-active" >Browse</a></li>
+							<li><a href="#about" data-icon="gear" >About</a></li>
+					</ul>
+				</nav>
+			</footer>
 		</section>		
-	</div>
+
+
+<!-- lastname: Search Page -->
+		<section data-role="page" id="lastname" data-theme="a">
+		
+			<header data-role="header" data-position="fixed">
+				<h1>Last Name</h1>
+				
+			</header>
+
+			<section data-role="content">
+			
+		 				 <ul data-role="listview" data-inset="true" data-filter="true" 
+		 				 data-filter-placeholder="Enter Search Here">
+		 						<li data-role="list-divider">Players by Last Name
+		 							<p class="ui-li-aside"> Contract Expires</p>
+		 						</li>
+		 						<li data-icon="forward" ><a href="#lnadejo"><h3>Adejo</h3>
+		 							<p style="font-weight:bold">Current Club:</p>
+		 							<p style="font-size:8"> Hertha Berlin</p>
+		 							<p class="ui-li-aside"> 10/10/2017</p></a>
+		 						</li>
+		 						<li data-icon="forward" ><a href="#lnameobi"><h3>Ameobi</h3>
+		 							<p style="font-weight:bold">Current Club:</p>
+		 							<p style="font-size:8"> Newcastle FC</p>
+		 							<p class="ui-li-aside"> 01/27/2015</p></a>
+		 						</li>
+		 						<li data-icon="forward" ><a href="#lnmusa"><h3>Musa</h3>
+		 							<p style="font-weight:bold">Current Club:</p>
+		 							<p style="font-size:8"> Hull City</p>
+		 							<p class="ui-li-aside"> 12/11/2013</p></a>
+		 						</li>
+		 						<li data-icon="forward" ><a href="#lnobi"><h3>Obi</h3>
+		 							<p style="font-weight:bold">Current Club:</p>
+		 							<p style="font-size:8"> Chelsea FC</p>
+		 							<p class="ui-li-aside"> 05/10/2015</p></a>
+		 						</li>
+		 						<li data-icon="forward" ><a href="#lnutaka"><h3>Utaka</h3>
+		 							<p style="font-weight:bold">Current Club:</p>
+		 							<p style="font-size:8"> Anzhi</p>
+		 							<p class="ui-li-aside"> 09/18/2016</p></a>
+		 						</li>
+		 						
+							
+			 				</ul>
+			 </section>
+
+			<footer data-role="footer">
+				<nav data-role="navbar"> 
+					<ul>
+							<li><a href="#add" data-icon="plus">Add</a></li>
+							<li><a href="#browse" data-icon="search" class="ui-btn-active" >Browse</a></li>
+							<li><a href="#about" data-icon="gear" >About</a></li>
+					</ul>
+				</nav>
+			</footer>
+		</section>
+<!--firstname: Search Page -->
+		<section data-role="page" id="firstname" data-theme="a">
+		
+			<header data-role="header" data-position="fixed">
+				<h1>First Name</h1>
+				
+			</header>
+			
+			<section data-role="content">
+							<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Enter Search Here">
+		 						<li data-role="list-divider">Players by First Name</li>
+		 						<li data-icon="search" ><a href="#add">Ahmed</a></li>
+		 						<li data-icon="search" ><a href="#add">John</a></li>
+		 						<li data-icon="search" ><a href="#add">Mark</a></li>
+		 						<li data-icon="search" ><a href="#add">Mikel</a></li>
+		 						<li data-icon="search" ><a href="#add">Shola</a></li>
+			 				</ul>
+		 	
+			</section>
+
+			<footer data-role="footer">
+				<nav data-role="navbar"> 
+					<ul>
+							<li><a href="#add" data-icon="plus">Add</a></li>
+							<li><a href="#browse" data-icon="search" class="ui-btn-active" >Browse</a></li>
+							<li><a href="#about" data-icon="gear" >About</a></li>
+					</ul>
+				</nav>
+			</footer>
+		</section>
+
+<!--fieldPosition: Search Page -->
+		<section data-role="page" id="fieldpos" data-theme="a">
+		
+			<header data-role="header" data-position="fixed">
+				<h1>Position</h1>
+				
+			</header>
+			
+			<section data-role="content">
+				 <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Enter Search Here">
+		 			<li data-role="list-divider">Players by Field Position</li>
+		 			<li data-icon="search" ><a href="#add">Forward</a></li>
+		 			<li data-icon="search" ><a href="#add">Midfielder</a></li>
+		 			<li data-icon="search" ><a href="#add">Defender</a></li>
+		 		
+			 	</ul>
+		 	
+			</section>
+
+			<footer data-role="footer">
+				<nav data-role="navbar"> 
+					<ul>
+							<li><a href="#add" data-icon="plus">Add</a></li>
+							<li><a href="#browse" data-icon="search" class="ui-btn-active" >Browse</a></li>
+							<li><a href="#about" data-icon="gear" >About</a></li>
+					</ul>
+				</nav>
+			</footer>
+		</section>
+
+<!--Page 3: About Me -->
+
+
+		<section data-role="page" id="about" data-theme="a">
+		
+			<header data-role="header" data-position="fixed">
+				<h1>About Me</h1>
+				
+			</header>
+				
+			<section data-role="collapsible-set" data-theme="b" data-content-theme="a">
+
+					<div data-role="collapsible" data-collapsed="true" data-iconpos="right">
+							<h3>Profile</h3>
+		
+						<section data-role="section">
+							<p> My Profile Here</p>
+		 	
+						</section>
+					</div>
+				
+					<div data-role="collapsible" data-collapsed="true" data-iconpos="right">
+							<h3>Other Works</h3>
+		
+						<section data-role="section">
+						 	<p> My Other Authorship Here</p>
+		 	
+						</section>
+					</div>
+				
+					<div data-role="collapsible" data-collapsed="true" data-iconpos="right">
+							<h3>Hobbies</h3>
+		
+						<section data-role="section">
+						 	<p> My Hobbies Here</p>
+		 	
+						</section>
+					</div>
+		
+			<footer data-role="footer">
+				<nav data-role="navbar"> 
+					<ul>
+							<li><a href="#add" data-icon="plus">Add</a></li>
+							<li><a href="#browse" data-icon="search">Browse</a></li>
+							<li><a href="#about" data-icon="gear" class="ui-btn-active">About</a></li>
+					</ul>
+				</nav>
+			</footer>
+		</section>	
+</div>
 
 	<!-- JavaScript under here -->
-	
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
 	<script src="javascript/libraries/jquery.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script src="javascript/libraries/jquerymobile.js"></script>
+	<script type="text/javascript" src="javascript/libraries/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="javascript/main.js"></script>
+
+
+
+
 
 </body>
 </html>
